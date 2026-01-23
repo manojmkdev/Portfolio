@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manojkumar Sankar | Software Developer</title>
+    <link rel="icon" type="image/jpeg" href="images/manoj.jpeg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5em;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-text h2 {
+            font-size: 1.8em;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .hero-text p {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+        }
+
+        .profile-img-container {
+            text-align: right;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 20px 40px;
+        }
+
+        nav a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #ff6b6b;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        section {
+            margin: 80px 0;
+        }
+
+        section h2 {
+            font-size: 2.8em;
+            color: #212529;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a6f);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: #6c757d;
+            margin-bottom: 40px;
+        }
+
+        .about-content p {
+            font-size: 1.2em;
+            color: #495057;
+            line-height: 1.9;
+            max-width: 900px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #212529;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
+            border-color: #ff6b6b;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        .project-item {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #ff6b6b;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 107, 0.25);
+        }
+
+        .project-item h3 {
+            color: #ff6b6b;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .project-item p {
+            color: #495057;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.2);
+        }
+
+        .contact-card h3 {
+            color: #ff6b6b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            color: #495057;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background: #212529;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 100px;
+        }
+
+        @media (max-width: 968px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-img-container {
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5em;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 25px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1>Manojkumar Sankar</h1>
+                <h2>Software Developer</h2>
+                <p>Passionate about creating robust backend systems and elegant solutions with modern technologies.</p>
+            </div>
+            <div class="profile-img-container">
+                <img src="images/manoj.jpeg" alt="Manojkumar Sankar" class="profile-img">
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-container">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<div class="container">
+    <section id="about">
+        <h2>About Me</h2>
+        <p class="section-subtitle">Get to know me better</p>
+        <div class="about-content">
+            <p>
+                Software developer with 1.8+ years of professional experience in Java,
+                ReactJS, Spring Boot, and REST API development. Strong interest in backend
+                systems, microservices architecture, and algorithmic problem solving.
+            </p>
+            <a class="btn" href="resume/Manojkumar_Sankar_Resume.pdf" target="_blank">Download Resume</a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <p class="section-subtitle">Technologies I work with</p>
+        <div class="skills-grid">
+            <div class="skill-item">Java</div>
+            <div class="skill-item">ReactJS</div>
+            <div class="skill-item">Spring Boot</div>
+            <div class="skill-item">Microservices</div>
+            <div class="skill-item">MySQL</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">GitHub</div>
+            <div class="skill-item">Postman</div>
+            <div class="skill-item">DSA</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <p class="section-subtitle">Some of my recent work</p>
+        <div class="project-grid">
+            <div class="project-item">
+                <h3>VirtuCharge – Mobile Recharge App</h3>
+                <p>Full-stack recharge platform with ReactJS frontend and Spring Boot REST APIs.</p>
+            </div>
+            <div class="project-item">
+                <h3>Virtual Pilgrimage Experience</h3>
+                <p>AR/VR based virtual tourism application with immersive 360° experiences.</p>
+            </div>
+            <div class="project-item">
+                <h3>Microservices Practice System</h3>
+                <p>Backend microservices built using Spring Boot and REST architecture.</p>
+            </div>
+            <div class="project-item">
+                <h3>Student Training Portal</h3>
+                <p>Learning management portal to track student progress and assessments.</p>
+            </div>
+            <div class="project-item">
+                <h3>JWT Authentication Module</h3>
+                <p>Secure authentication system using JWT and Spring Security.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p class="section-subtitle">Let's connect and build something great</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Email</h3>
+                <p>manojmk2910@gmail.com</p>
+            </div>
+            <div class="contact-card">
+                <h3>Location</h3>
+                <p>Mayiladuthurai, India</p>
+            </div>
+            <div class="contact-card">
+                <h3>GitHub</h3>
+                <a class="btn" href="https://github.com/manojmkdev" target="_blank">Visit Profile</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>© 2024 Manojkumar Sankar | Crafted with passion</p>
+</footer>
+
+</body>
+</html>
