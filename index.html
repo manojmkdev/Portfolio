@@ -207,6 +207,29 @@
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
+        /* Contact Form Styling */
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    font-size: 1em;
+    font-family: inherit;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+}
+
+form label {
+    font-weight: 600;
+    color: #495057;
+}
+
 
         .skill-item:hover {
             transform: translateY(-8px);
@@ -286,6 +309,7 @@
             padding: 40px;
             margin-top: 100px;
         }
+        
     </style>
 </head>
 <body>
@@ -314,7 +338,7 @@
     </div>
 </nav>
 
-<div class="container">
+<main class="container">
     <section id="about">
         <h2>About Me</h2>
         <p class="section-subtitle">Get to know me better</p>
@@ -372,24 +396,83 @@
     </section>
 
     <section id="contact">
-        <h2>Get In Touch</h2>
-        <p class="section-subtitle">Let's connect and build something great</p>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <h3>Email</h3>
-                <p>manojmk2910@gmail.com</p>
-            </div>
-            <div class="contact-card">
-                <h3>Location</h3>
-                <p>Mayiladuthurai, India</p>
-            </div>
-            <div class="contact-card">
-                <h3>GitHub</h3>
-                <a class="btn" href="https://github.com/manojmkdev" target="_blank">Visit Profile</a>
-            </div>
+    <h2>Get In Touch</h2>
+    <p class="section-subtitle">Let's connect and build something great</p>
+
+    <div class="contact-grid">
+
+        <!-- Contact Information Card -->
+        <div class="contact-card">
+            <h3>Email</h3>
+            <p>manojmk2910@gmail.com</p>
         </div>
-    </section>
-</div>
+
+        <div class="contact-card">
+            <h3>Location</h3>
+            <p>Mayiladuthurai, India</p>
+        </div>
+
+        <!-- Contact Form Card -->
+        <div class="contact-card">
+            <h3>Contact Form</h3>
+
+            <!-- Contact Form Starts -->
+            <form action="#" method="post">
+
+                <!-- Name Field -->
+                <label for="name">Full Name</label><br>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                    minlength="3"
+                ><br><br>
+
+                <!-- Email Field -->
+                <label for="email">Email Address</label><br>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                ><br><br>
+
+                <!-- Subject Field -->
+                <label for="subject">Subject</label><br>
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Enter subject"
+                    required
+                ><br><br>
+
+                <!-- Message Field -->
+                <label for="message">Message</label><br>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea><br><br>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn">
+                    Send Message
+                </button>
+
+            </form>
+            <!-- Contact Form Ends -->
+
+        </div>
+    </div>
+</section>
+
+</main>
 
 <footer>
     <p>© 2024 Manojkumar Sankar | Crafted with passion</p>
@@ -398,3 +481,4 @@
 </body>
 
 </html>
+
